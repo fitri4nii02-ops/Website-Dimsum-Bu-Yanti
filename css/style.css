@@ -1,0 +1,2794 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fffaf0;
+    color: #5a3e1b;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root {
+    --brown: #5a3e1b;
+    --dark-brown: #3e2a12;
+
+    --cream: #fffaf0;
+    --cream-light: #fffdf7;
+
+    --yellow: #f6d77a;
+    --yellow-light: #fff7d6;
+
+    --pink: #e89aaa;
+    --pink-light: #ffe8ed;
+
+    --white: #ffffff;
+
+    --text-light: #806c51;
+
+    --shadow:
+        0 12px 35px rgba(90, 62, 27, 0.10);
+
+    --shadow-hover:
+        0 20px 45px rgba(90, 62, 27, 0.18);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(90, 62, 27, 0.97);
+    color: white;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.navbar:hover {
+    background: rgba(62, 42, 18, 0.98);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+
+    min-height: 70px;
+
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.nav-logo {
+    font-family: "Baloo 2", cursive;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    color: var(--yellow);
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+.nav-logo:hover {
+    transform: scale(1.04);
+}
+
+.nav-container nav {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+}
+
+.nav-container nav a {
+    position: relative;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: white;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.nav-container nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--yellow);
+
+    transition: width 0.3s ease;
+}
+
+.nav-container nav a:hover {
+    color: var(--yellow);
+    transform: translateY(-2px);
+}
+
+.nav-container nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   HERO / BERANDA
+===================================================== */
+
+.hero {
+    min-height: 650px;
+
+    background:
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(246, 215, 122, 0.30),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(232, 154, 170, 0.13),
+            transparent 25%
+        ),
+        var(--cream);
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+/* dekorasi bergerak */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(246, 215, 122, 0.15);
+
+    top: 80px;
+    left: -80px;
+
+    animation: floatingDecor 7s ease-in-out infinite;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background: rgba(232, 154, 170, 0.12);
+
+    right: -50px;
+    bottom: 60px;
+
+    animation: floatingDecorReverse 8s ease-in-out infinite;
+}
+
+.hero-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 80px 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.8fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    background: var(--brown);
+    color: var(--yellow);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+
+    animation: titleFloat 3s ease-in-out infinite;
+}
+
+.hero-content h1 {
+    max-width: 650px;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size:
+        clamp(48px, 6vw, 76px);
+
+    line-height: 0.95;
+
+    color: var(--brown);
+
+    margin-bottom: 25px;
+
+    animation: heroTitle 0.9s ease both;
+}
+
+.hero-description {
+    max-width: 570px;
+
+    color: var(--text-light);
+
+    font-size: 15px;
+
+    margin-bottom: 25px;
+
+    animation: heroDescription 1s ease both;
+}
+
+
+/* =====================================================
+   HERO ANIMATION
+===================================================== */
+
+@keyframes heroTitle {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroDescription {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes floatingDecor {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(25px, 35px);
+    }
+}
+
+@keyframes floatingDecorReverse {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-25px, -30px);
+    }
+}
+
+
+/* =====================================================
+   JAM BUKA HERO
+===================================================== */
+
+.hero-hours {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 20px 0 25px;
+
+    padding: 14px 25px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    border-left:
+        5px solid var(--yellow);
+
+    box-shadow: var(--shadow);
+
+    transition: 0.35s;
+}
+
+.hero-hours:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.hours-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--yellow-light);
+
+    font-size: 20px;
+
+    animation: clockPulse 2s ease-in-out infinite;
+}
+
+@keyframes clockPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.hero-hours small {
+    display: block;
+
+    color: var(--text-light);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.hero-hours strong {
+    display: block;
+
+    color: var(--brown);
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.btn-primary {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 28px;
+
+    background: var(--brown);
+    color: white;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(90, 62, 27, 0.20);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.6s;
+}
+
+.btn-primary:hover::before {
+    left: 130%;
+}
+
+.btn-primary:hover {
+    background: var(--dark-brown);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(90, 62, 27, 0.25);
+}
+
+
+/* =====================================================
+   HERO LOGO
+===================================================== */
+
+.hero-logo {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-wrapper {
+    position: relative;
+
+    width: 390px;
+    height: 390px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-wrapper::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: var(--yellow-light);
+
+    border-radius: 50%;
+
+    animation:
+        floatingCircle 4s ease-in-out infinite;
+}
+
+.logo-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    width: 85%;
+    height: 85%;
+
+    border:
+        3px dashed rgba(90, 62, 27, 0.18);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle 18s linear infinite;
+}
+
+.logo-dimsum {
+    position: relative;
+
+    z-index: 2;
+
+    width: 285px;
+    height: 285px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        10px solid white;
+
+    box-shadow:
+        0 20px 50px rgba(90, 62, 27, 0.20);
+
+    animation:
+        floatingLogo 4s ease-in-out infinite;
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.logo-dimsum:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 25px 60px rgba(90, 62, 27, 0.25);
+}
+
+@keyframes floatingLogo {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes floatingCircle {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+    padding: 90px 25px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.section:nth-of-type(even) {
+    background: var(--cream-light);
+}
+
+.section-heading {
+    max-width: 1050px;
+
+    margin:
+        0 auto 45px;
+
+    text-align: center;
+}
+
+.section-heading span {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    background: var(--brown);
+    color: var(--yellow);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+
+    box-shadow:
+        0 5px 15px rgba(90, 62, 27, 0.12);
+
+    transition: 0.3s;
+}
+
+.section-heading span:hover {
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    background: var(--dark-brown);
+}
+
+.section-heading h2 {
+    font-family: "Baloo 2", cursive;
+
+    font-size: 50px;
+
+    line-height: 1;
+
+    color: var(--brown);
+}
+
+.section-heading p {
+    max-width: 650px;
+
+    margin:
+        12px auto 0;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   GARIS PEMBATAS ANTAR SECTION
+===================================================== */
+
+#beranda,
+#favorit,
+#menu,
+#pesan,
+#kontak {
+    border-bottom:
+        2px solid rgba(90, 62, 27, 0.18);
+}
+
+
+/* =====================================================
+   PILIHAN FAVORIT
+===================================================== */
+
+.favorite-grid {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.favorite-card {
+    background: white;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.45s ease;
+}
+
+.favorite-card:hover {
+    transform:
+        translateY(-12px)
+        rotate(-0.5deg);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.favorite-image {
+    height: 250px;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.favorite-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 55%,
+            rgba(246, 215, 122, 0.20)
+        );
+
+    opacity: 0;
+
+    transition: 0.4s;
+}
+
+.favorite-card:hover
+.favorite-image::after {
+    opacity: 1;
+}
+
+.favorite-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.6s ease;
+}
+
+.favorite-card:hover
+.favorite-image img {
+    transform: scale(1.1);
+}
+
+.favorite-content {
+    padding: 22px;
+
+    transition: 0.3s;
+}
+
+.favorite-card:hover .favorite-content {
+    transform: translateY(-2px);
+}
+
+.favorite-content span {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    background: var(--yellow-light);
+
+    color: var(--brown);
+
+    border-radius: 20px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+
+    transition: 0.3s;
+}
+
+.favorite-card:hover .favorite-content span {
+    background: var(--pink-light);
+}
+
+.favorite-content h3 {
+    font-family: "Baloo 2", cursive;
+
+    font-size: 26px;
+
+    color: var(--brown);
+
+    margin-bottom: 5px;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+
+/* =====================================================
+   KARTU MENU BESAR
+===================================================== */
+
+.menu-large-card {
+    position: relative;
+
+    width: 100%;
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 32px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.menu-large-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: rgba(246, 215, 122, 0.12);
+
+    top: -70px;
+    right: -60px;
+
+    transition: 0.5s;
+}
+
+.menu-large-card:hover::before {
+    transform:
+        scale(1.5)
+        rotate(30deg);
+}
+
+.menu-large-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =====================================================
+   NAMA MENU
+===================================================== */
+
+.menu-card-title {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid #f0e4cb;
+}
+
+.menu-card-title h3 {
+    font-family: "Baloo 2", cursive;
+
+    font-size: 36px;
+
+    line-height: 1;
+
+    color: var(--brown);
+
+    transition: 0.3s;
+}
+
+.menu-large-card:hover
+.menu-card-title h3 {
+    transform: translateX(5px);
+}
+
+
+/* =====================================================
+   ISI MENU
+   HARGA KIRI - VARIAN KANAN
+===================================================== */
+
+.menu-card-content {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        230px minmax(0, 1fr);
+
+    grid-template-areas:
+        "price variant";
+
+    gap: 35px;
+
+    align-items: start;
+
+    justify-content: center;
+}
+
+
+/* =====================================================
+   HARGA & INFORMASI
+===================================================== */
+
+.price-area {
+    grid-area: price;
+
+    width: 230px;
+
+    justify-self: center;
+
+    background: #fffaf0;
+
+    border:
+        1px solid #f0e4cb;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    transition: 0.35s;
+}
+
+.price-area:hover {
+    box-shadow:
+        0 12px 25px rgba(90, 62, 27, 0.09);
+
+    transform: translateY(-3px);
+}
+
+.price-area h4 {
+    font-size: 18px;
+
+    color: var(--brown);
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   ITEM HARGA
+===================================================== */
+
+.price-item {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 15px 16px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    border:
+        1px solid #f0e4cb;
+
+    margin-bottom: 12px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.price-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background: var(--yellow);
+
+    transition: 0.3s;
+}
+
+.price-item:hover {
+    transform: translateX(7px);
+
+    box-shadow:
+        0 7px 18px rgba(90, 62, 27, 0.09);
+}
+
+.price-item:hover::before {
+    background: var(--pink);
+}
+
+.price-item strong {
+    display: block;
+
+    color: var(--brown);
+
+    font-size: 18px;
+
+    transition: 0.3s;
+}
+
+.price-item:hover strong {
+    transform: scale(1.03);
+}
+
+.price-item span {
+    color: var(--text-light);
+
+    font-size: 11px;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   FREE SAOS
+===================================================== */
+
+.free-sauce {
+    margin-top: 15px;
+
+    padding: 12px 14px;
+
+    background: var(--yellow-light);
+
+    color: #71570e;
+
+    border-radius: 12px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    line-height: 1.5;
+
+    animation: saucePulse 3s ease-in-out infinite;
+}
+
+@keyframes saucePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+
+/* =====================================================
+   VARIAN
+===================================================== */
+
+.variant-area {
+    grid-area: variant;
+
+    width: 100%;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+/* =====================================================
+   KOTAK KECIL "VARIAN"
+===================================================== */
+
+.variant-area > h4 {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    background: var(--brown);
+
+    color: var(--yellow);
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 18px;
+
+    box-shadow:
+        0 5px 12px rgba(90, 62, 27, 0.12);
+
+    transition: 0.3s;
+}
+
+.variant-area > h4:hover {
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    background: var(--dark-brown);
+}
+
+
+/* =====================================================
+   FOTO VARIAN
+===================================================== */
+
+.variant-image-grid {
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin: 0 auto;
+}
+
+.variant-card {
+    position: relative;
+
+    width: 115px;
+
+    flex: 0 0 115px;
+
+    background: #fffaf0;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    border:
+        1px solid #f0e4cb;
+
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.4s ease,
+        border-color 0.3s;
+
+    cursor: pointer;
+}
+
+.variant-card:hover {
+    transform:
+        translateY(-9px)
+        rotate(-1deg)
+        scale(1.03);
+
+    border-color: var(--yellow);
+
+    box-shadow:
+        0 14px 28px rgba(90, 62, 27, 0.14);
+}
+
+.variant-card img {
+    width: 100%;
+
+    height: 125px;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.55s ease;
+}
+
+.variant-card:hover img {
+    transform: scale(1.12);
+}
+
+.variant-card span {
+    display: block;
+
+    padding: 10px 8px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: var(--brown);
+
+    background: white;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.variant-card:hover span {
+    background: var(--brown);
+
+    color: var(--yellow);
+}
+
+
+/* =====================================================
+   FROZEN & EXTRA SAOS
+===================================================== */
+
+.small-menu-grid {
+    max-width: 1050px;
+
+    margin: 30px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 30px;
+
+    align-items: stretch;
+}
+
+.small-menu-card {
+    position: relative;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.small-menu-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: rgba(232, 154, 170, 0.10);
+
+    right: -45px;
+    bottom: -45px;
+
+    transition: 0.5s;
+}
+
+.small-menu-card:hover::after {
+    transform: scale(1.5);
+}
+
+.small-menu-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.small-menu-card h3 {
+    position: relative;
+
+    color: var(--brown);
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.small-menu-card p {
+    color: var(--text-light);
+
+    font-size: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   FROZEN
+===================================================== */
+
+.frozen-price {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+.frozen-price div {
+    background: #fff8df;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.frozen-price div:hover {
+    transform:
+        translateY(-5px)
+        scale(1.02);
+
+    box-shadow:
+        0 8px 18px rgba(90, 62, 27, 0.08);
+}
+
+.frozen-price strong {
+    display: block;
+
+    color: var(--brown);
+
+    font-size: 18px;
+}
+
+.frozen-price span {
+    color: var(--text-light);
+
+    font-size: 12px;
+}
+
+.small-info {
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background: #fff7d6;
+
+    color: #71570e;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.small-info:hover {
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   EXTRA SAOS
+===================================================== */
+
+.sauce-price {
+    margin-bottom: 18px;
+}
+
+.sauce-price strong {
+    color: var(--brown);
+
+    font-size: 25px;
+}
+
+.sauce-price span {
+    color: var(--text-light);
+
+    font-size: 13px;
+}
+
+.sauce-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.sauce-list span {
+    padding: 8px 11px;
+
+    border-radius: 20px;
+
+    background: #fff7d6;
+
+    color: var(--brown);
+
+    font-size: 11px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.sauce-list span:hover {
+    background: var(--brown);
+
+    color: var(--yellow);
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+}
+
+
+/* =====================================================
+   PESAN
+===================================================== */
+
+.order-container {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.8fr;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+.order-form,
+.order-summary {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.order-form:hover,
+.order-summary:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.order-form label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: var(--brown);
+}
+
+.order-form select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border:
+        1px solid #eadfc9;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fffdf8;
+
+    color: var(--brown);
+
+    font-size: 12px;
+
+    margin-bottom: 18px;
+
+    transition: 0.3s;
+}
+
+.order-form select:hover {
+    border-color: var(--yellow);
+}
+
+.order-form select:focus {
+    border-color: var(--pink);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(232, 154, 170, 0.15);
+}
+
+.order-summary h3 {
+    font-family: "Baloo 2", cursive;
+
+    color: var(--brown);
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+.btn-add {
+    width: 100%;
+
+    border: none;
+
+    padding: 13px;
+
+    background: var(--brown);
+
+    color: white;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-add:hover {
+    background: var(--dark-brown);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(90, 62, 27, 0.18);
+}
+
+.btn-add:active {
+    transform: scale(0.98);
+}
+
+
+/* =====================================================
+   DAFTAR PESANAN
+===================================================== */
+
+.order-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    background: #fffaf0;
+
+    border-radius: 12px;
+
+    animation: orderAppear 0.35s ease both;
+
+    transition: 0.3s;
+}
+
+.order-item:hover {
+    transform: translateX(4px);
+}
+
+@keyframes orderAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.order-item-info strong {
+    display: block;
+
+    color: var(--brown);
+
+    font-size: 12px;
+}
+
+.order-item-info span {
+    display: block;
+
+    color: var(--text-light);
+
+    font-size: 10px;
+}
+
+.quantity-control {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.quantity-control button {
+    width: 28px;
+    height: 28px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--brown);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: 0.25s;
+}
+
+.quantity-control button:hover {
+    transform: scale(1.12);
+
+    background: var(--pink);
+}
+
+.quantity-control span {
+    min-width: 20px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.total-order {
+    padding-top: 18px;
+
+    border-top:
+        1px solid #eee1ca;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.total-order span {
+    font-size: 13px;
+
+    color: var(--text-light);
+}
+
+.total-order strong {
+    font-size: 22px;
+
+    color: var(--brown);
+
+    transition: 0.3s;
+}
+
+.total-order:hover strong {
+    transform: scale(1.05);
+}
+
+.order-buttons {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.btn-order {
+    width: 100%;
+
+    margin-top: 15px;
+
+    border: none;
+
+    padding: 14px;
+
+    background: #25d366;
+
+    color: white;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.btn-order:hover {
+    transform:
+        translateY(-3px)
+        scale(1.01);
+
+    box-shadow:
+        0 8px 20px
+        rgba(37, 211, 102, 0.20);
+}
+
+.btn-order:active {
+    transform: scale(0.98);
+}
+
+.btn-clear {
+    width: 100%;
+
+    margin-top: 8px;
+
+    border: none;
+
+    padding: 10px;
+
+    background: transparent;
+
+    color: #a66;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    transition: 0.3s;
+}
+
+.btn-clear:hover {
+    color: #7d4444;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   KONTAK
+===================================================== */
+
+.contact-grid {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.contact-card {
+    padding: 25px 18px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.4s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.4s ease;
+}
+
+.contact-card:hover {
+    transform:
+        translateY(-9px)
+        rotate(-0.5deg);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-icon {
+    width: 55px;
+    height: 55px;
+
+    margin:
+        0 auto 13px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--yellow-light);
+
+    font-size: 22px;
+
+    transition: 0.4s;
+}
+
+.contact-card:hover .contact-icon {
+    transform:
+        rotate(8deg)
+        scale(1.1);
+
+    background: var(--pink-light);
+}
+
+.contact-card h3 {
+    font-family: "Baloo 2", cursive;
+
+    color: var(--brown);
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+.contact-card p {
+    color: var(--text-light);
+
+    font-size: 11px;
+
+    margin-bottom: 12px;
+}
+
+.contact-card a,
+.contact-card button {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    background: var(--brown);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.contact-card a:hover,
+.contact-card button:hover {
+    background: var(--dark-brown);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   MASUKAN PELANGGAN
+===================================================== */
+
+.feedback-container {
+    max-width: 700px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.feedback-container:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.feedback-container form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: var(--brown);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border:
+        1px solid #eadfc9;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fffdf8;
+
+    color: var(--brown);
+
+    font-size: 12px;
+
+    transition:
+        border 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: var(--yellow);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--pink);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(232, 154, 170, 0.15);
+
+    transform: translateY(-2px);
+}
+
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.feedback-button {
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(50, 35, 18, 0.60);
+
+    backdrop-filter: blur(7px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+
+    max-width: 450px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.20);
+
+    animation:
+        modalShow 0.35s cubic-bezier(.2,.8,.2,1);
+}
+
+.modal-close {
+    position: absolute;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 25px;
+
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+
+    color: var(--pink);
+}
+
+.modal-icon {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+
+    animation:
+        modalIcon 1.8s ease-in-out infinite;
+}
+
+@keyframes modalIcon {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px) rotate(3deg);
+    }
+}
+
+@keyframes modalShow {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.90);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.modal-content h3 {
+    font-family: "Baloo 2", cursive;
+
+    font-size: 30px;
+
+    color: var(--brown);
+
+    margin-bottom: 8px;
+}
+
+.modal-content p {
+    color: var(--text-light);
+
+    font-size: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    padding: 25px;
+
+    background: var(--brown);
+
+    color: white;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--yellow),
+            var(--pink),
+            var(--yellow)
+        );
+
+    background-size: 200% 100%;
+
+    animation: footerLine 4s linear infinite;
+}
+
+@keyframes footerLine {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 200% 0;
+    }
+}
+
+.footer p {
+    font-size: 11px;
+
+    color:
+        rgba(255, 255, 255, 0.85);
+}
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(35px)
+        scale(0.98);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =====================================================
+   ANIMASI BERURUTAN
+===================================================== */
+
+.favorite-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.favorite-card:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.favorite-card:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.menu-large-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.menu-large-card:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.menu-large-card:nth-child(3) {
+    transition-delay: 0.19s;
+}
+
+.small-menu-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.small-menu-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+
+/* =====================================================
+   RESPONSIVE 1000px
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .nav-container {
+        flex-direction: column;
+
+        padding: 15px 20px;
+
+        gap: 10px;
+    }
+
+    .nav-container nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        gap: 40px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-hours {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-logo {
+        order: -1;
+    }
+
+    .logo-wrapper {
+        width: 300px;
+        height: 300px;
+    }
+
+    .logo-dimsum {
+        width: 220px;
+        height: 220px;
+    }
+
+    /* MENU TETAP 1 KOLOM */
+
+    .menu-card-content {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "price"
+            "variant";
+
+        gap: 30px;
+    }
+
+    .price-area {
+        position: static;
+
+        width: 100%;
+
+        max-width: 500px;
+
+        justify-self: center;
+    }
+
+    .variant-area {
+        grid-area: variant;
+
+        width: 100%;
+
+        align-items: center;
+
+        margin: 0;
+    }
+
+    .variant-image-grid {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .contact-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .order-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE 800px
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .section {
+        padding: 75px 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 42px;
+    }
+
+    .favorite-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .favorite-image {
+        height: 280px;
+    }
+
+    .small-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-large-card {
+        padding: 25px;
+    }
+
+    .menu-card-title h3 {
+        font-size: 32px;
+    }
+
+    .menu-card-content {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "price"
+            "variant";
+
+        gap: 30px;
+    }
+
+    .price-area {
+        width: 100%;
+
+        max-width: 500px;
+
+        justify-self: center;
+    }
+
+    .variant-area {
+        grid-area: variant;
+
+        width: 100%;
+
+        align-items: center;
+
+        margin: 0;
+    }
+
+    .variant-image-grid {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 14px;
+    }
+
+    .variant-card {
+        width: 115px;
+
+        flex: 0 0 115px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE 700px
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .section {
+        padding: 65px 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+    }
+
+    .favorite-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .small-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-card-content {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "price"
+            "variant";
+
+        gap: 25px;
+    }
+
+    .price-area {
+        width: 100%;
+
+        max-width: 100%;
+
+        padding: 18px;
+
+        justify-self: center;
+    }
+
+    .variant-area {
+        grid-area: variant;
+
+        width: 100%;
+
+        align-items: center;
+
+        margin: 0;
+    }
+
+    .variant-image-grid {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .variant-card {
+        width: 115px;
+
+        flex: 0 0 115px;
+    }
+
+    .price-item {
+        padding: 13px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feedback-container {
+        padding: 25px 20px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE 480px
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .nav-logo {
+        font-size: 23px;
+    }
+
+    .nav-container nav {
+        gap: 10px;
+    }
+
+    .nav-container nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-container {
+        padding:
+            70px 18px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .logo-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+
+    .logo-dimsum {
+        width: 185px;
+        height: 185px;
+
+        border-width: 7px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .menu-large-card {
+        padding: 20px;
+    }
+
+    .menu-card-title h3 {
+        font-size: 28px;
+    }
+
+    /* DI HP TETAP 1 KOLOM */
+
+    .menu-card-content {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "price"
+            "variant";
+
+        gap: 25px;
+    }
+
+    .price-area {
+        width: 100%;
+
+        max-width: 100%;
+
+        justify-self: center;
+    }
+
+    .variant-area {
+        grid-area: variant;
+
+        width: 100%;
+
+        align-items: center;
+
+        margin: 0;
+    }
+
+    .variant-image-grid {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 10px;
+    }
+
+    .variant-card {
+        width: 105px;
+
+        flex: 0 0 105px;
+    }
+
+    .variant-card img {
+        height: 105px;
+    }
+
+    .variant-card span {
+        padding: 8px 5px;
+
+        font-size: 10px;
+    }
+
+    .frozen-price {
+        grid-template-columns: 1fr;
+    }
+
+    .order-form,
+    .order-summary {
+        padding: 20px;
+    }
+
+    .modal-content {
+        padding: 25px 20px;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+   Untuk pengguna yang mematikan animasi di perangkat
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.contact-card strong {
+    display: inline-block;
+    color: #b8860b;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #fff4b8;
+}
+#btnPesan {
+    background: #f4c430;
+    color: #5a3e1b;
+    border: none;
+}
+
+#btnPesan:hover {
+    background: #e6b800;
+    color: #5a3e1b;
+}
