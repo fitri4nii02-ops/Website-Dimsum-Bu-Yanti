@@ -739,7 +739,6 @@ select {
 #beranda, 
 #favorit, 
 #menu, 
-#pembelian, 
 #kontak { 
     border-bottom: 
         2px solid rgba(90, 62, 27, 0.18); 
@@ -1251,7 +1250,7 @@ select {
 } 
 
 
-/* ===================================================== 
+/* =====================================================
    KHUSUS DIMSUM KUKUS UTAMA
    HANYA BAGIAN PERTAMA
 ===================================================== */
@@ -1556,24 +1555,6 @@ select {
     transform: 
         translateY(-3px) 
         scale(1.03); 
-} 
- 
- 
-/* ===================================================== 
-   CARA PEMBELIAN 
-===================================================== */ 
- 
-.purchase-grid { 
-    max-width: 700px; 
- 
-    margin: auto; 
- 
-    display: grid; 
- 
-    grid-template-columns: 
-        repeat(2, 1fr); 
- 
-    gap: 20px; 
 } 
  
  
@@ -1968,10 +1949,6 @@ select {
     } 
  
     .contact-grid { 
-        grid-template-columns: 1fr; 
-    } 
- 
-    .purchase-grid { 
         grid-template-columns: 1fr; 
     } 
 } 
